@@ -1,0 +1,198 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Home</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+  <!-- Favicons -->
+  <link href="{% static 'img/favicon.png' %}" rel="icon">
+  <link href="{% static 'img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+
+  <!-- Bootstrap CSS File -->
+  <link href="{% static 'lib/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+  <!-- Libraries CSS Files -->
+  <link href="{% static 'lib/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+  <link href="{% static 'lib/animate/animate.min.css' %}" rel="stylesheet">
+  <link href="{% static 'lib/ionicons/css/ionicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+  <link href="{% static 'lib/lightbox/css/lightbox.min.css' %}" rel="stylesheet">
+
+  <!-- Main Stylesheet File -->
+  <!--<link href="css/style.css" rel="stylesheet">-->
+  <link rel="stylesheet" href="{% static 'css/article_style.css' %}" type="text/css" media="all"/>
+
+  <!-- =======================================================
+    Theme Name: BizPage
+    Theme URL: https://bootstrapmade.com/bizpage-bootstrap-business-template/
+    Author: BootstrapMade.com
+    License: https://bootstrapmade.com/license/
+  ======================================================= -->
+</head>
+
+<body>
+
+ <!--==========================
+    Header
+  ============================-->
+  <header id="header">
+    <div class="container-fluid">
+
+      <div id="logo" class="pull-left">
+        <h1><a href="{% url 'home' %}" class="scrollto">Unit Zakat</a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="#intro"><img src="img/logo.png" alt="" title="" /></a>-->
+      </div>
+
+      <nav id="nav-menu-container">
+        <ul class="nav-menu">
+          <li class="menu-active"><a href="{% url 'home' %}">Utama</a></li>
+          <li><a href="#about">Tentang Kami</a></li>
+          <li><a href="#services">Perkhidmatan</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#team">Team</a></li>
+          <li class="menu-has-children"><a href="">Lain-Lain</a>
+            <ul>
+              <li><a href="{% url 'articles:list' %}">Berita Terkini</a></li>
+              <li><a href="#">Panduan Kiraan Zakat Asnaf</a></li>
+              <!--<li><a href="#">Drop Down 5</a></li>-->
+            </ul>
+          </li>
+          <li><a href="#contact">Hubungi Kami</a></li>
+          <li>{% if user.is_authenticated %}
+                <form class="logout-link" action="{% url 'accounts:logout'%}" method="post">
+                        {% csrf_token %}
+                        <button type="submit"><b>Logout</b></button>
+                    </form>
+                {% endif %}</li>
+        </ul>
+      </nav><!-- #nav-menu-container -->
+    </div>
+  </header><!-- #header -->
+
+
+
+
+  <main id="main">
+
+{% block content %}
+
+
+<div class="article-detail">
+    <div class="article">
+        <img src="{{article.thumb.url}}"/>
+        <h2>{{article.title}}</h2>
+        <p>{{article.body}}</p>
+        <p>{{article.date}}</p>
+    </div>
+</div>
+{% endblock %}
+
+  </main>
+
+   <!--==========================
+    Footer
+  ============================-->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-info">
+            <h3>Unit Zakat</h3>
+            <p>Penubuhan Unit Zakat sejajar dengan hasrat universiti untuk menjadikan Masjid sebagai tempat tumpuan komuniti.</p>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Cadangan Pautan</h4>
+            <ul>
+              <li><i class="ion-ios-arrow-right"></i> <a href="{% url 'home' %}">Utama</a></li>
+              <li><i class="ion-ios-arrow-right"></i> <a href="https://www.unisel.edu.my/main/">UNISEL</a></li>
+              <li><i class="ion-ios-arrow-right"></i> <a href="http://pusatislam.unisel.edu.my/">Pusat Islam</a></li>
+              <li><i class="ion-ios-arrow-right"></i> <a href="http://studentportal.unisel.edu.my/">Portal Pelajar</a></li>
+              <li><i class="ion-ios-arrow-right"></i> <a href="https://www.zakatselangor.com.my/agihan-zakat/kalkulator-kelayakan/">Kalkulator Kelayakan Asnaf</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h4>Hubungi Kami</h4>
+            <p>
+              Unit Zakat & Sedeqah UNISEL <br>
+              Jalan Timur Tambahan<br>
+              45600 Bestari Jaya<br>
+              Selangor Darul Ehsan <br>
+              <strong>Phone:</strong> +03 3280 5140<br>
+              <strong>Email:</strong> pusat_islam@unisel.edu.my<br>
+            </p>
+
+            <div class="social-links">
+              <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+              <a href="https://www.facebook.com/pusatislam.unisel" class="facebook"><i class="fa fa-facebook"></i></a>
+              <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+              <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
+              <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+            </div>
+
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-newsletter">
+            <h4>Berita Terkini</h4>
+            <p>Ketahui maklumat terkini dari Unit Zakat. Klik butang "BERITA" dibawah untuk akses ke sudut ruangan berita terkini.</p>
+            <!--<form action="" method="post">
+              <input type="email" name="email"><input type="submit"  value="Subscribe">
+            </form>-->
+            <a class="btn btn-success" href="{% url 'articles:list' %}" role="button">BERITA</a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong>Unit Zakat & Sedeqah Universiti Selangor</strong>. Hak Cipta Terpelihara
+      </div>
+      <div class="credits">
+        <!--
+          All the links in the footer should remain intact.
+          You can delete the links only if you purchased the pro version.
+          Licensing information: https://bootstrapmade.com/license/
+          Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=BizPage
+        -->
+        Direka Oleh <a href="{% url 'home' %}">SPI</a>
+      </div>
+    </div>
+  </footer><!-- #footer -->
+
+  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+  <!-- JavaScript Libraries -->
+  <script src="{% static 'lib/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'lib/jquery/jquery-migrate.min.js' %}"></script>
+  <script src="{% static 'lib/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'lib/easing/easing.min.js' %}"></script>
+  <script src="{% static 'lib/superfish/hoverIntent.js' %}"></script>
+  <script src="{% static 'lib/superfish/superfish.min.js' %}"></script>
+  <script src="{% static 'lib/wow/wow.min.js' %}"></script>
+  <script src="{% static 'lib/waypoints/waypoints.min.js' %}"></script>
+  <script src="{% static 'jlib/counterup/counterup.min.js' %}"></script>
+  <script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'lib/isotope/isotope.pkgd.min.js' %}"></script>
+  <script src="{% static 'lib/lightbox/js/lightbox.min.js' %}"></script>
+  <script src="{% static 'lib/touchSwipe/jquery.touchSwipe.min.js' %}"></script>
+  <!-- Contact Form JavaScript File -->
+  <script src="contactform/contactform.js"></script>
+
+  <!-- Template Main Javascript File -->
+  <script src="{% static 'js/main.js' %}"></script>
+
+</body>
+</html>

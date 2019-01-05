@@ -1,0 +1,15 @@
+{% extends 'form_layout.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div class="family-info">
+        <h2>Zakat Form</h2>
+        <form class="site-form" action="{% url 'formzakat:agree' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ agree | crispy }}
+            <!--{{ form.media }}-->
+
+            <input type="submit" value="Click Here">
+        </form>
+    </div>
+{% endblock %}

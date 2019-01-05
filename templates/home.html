@@ -1,0 +1,912 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Home</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+  <!-- Favicons -->
+  <link href="{% static 'img/favicon.png' %}" rel="icon">
+  <link href="{% static 'img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+
+  <!-- Bootstrap CSS File -->
+  <link href="{% static 'lib/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+  <!-- Libraries CSS Files -->
+  <link href="{% static 'lib/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+  <link href="{% static 'lib/animate/animate.min.css' %}" rel="stylesheet">
+  <link href="{% static 'lib/ionicons/css/ionicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+  <link href="{% static 'lib/lightbox/css/lightbox.min.css' %}" rel="stylesheet">
+
+  <!-- Main Stylesheet File -->
+  <!--<link href="css/style.css" rel="stylesheet">-->
+  <link rel="stylesheet" href="{% static 'css/home_style.css' %}" type="text/css" media="all"/>
+
+  <!-- =======================================================
+    Theme Name: BizPage
+    Theme URL: https://bootstrapmade.com/bizpage-bootstrap-business-template/
+    Author: BootstrapMade.com
+    License: https://bootstrapmade.com/license/
+  ======================================================= -->
+</head>
+
+<body>
+
+  <!--==========================
+    Header
+  ============================-->
+  <header id="header">
+    <div class="container-fluid">
+
+      <div id="logo" class="pull-left">
+        <h1><a href="{% url 'home' %}" class="scrollto">Unit Zakat</a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="#intro"><img src="img/logo.png" alt="" title="" /></a>-->
+      </div>
+
+      <nav id="nav-menu-container">
+        <ul class="nav-menu">
+          <li class="menu-active"><a href="{% url 'home' %}">Utama</a></li>
+          <li><a href="#about">Tentang Kami</a></li>
+          <li><a href="#services">Perkhidmatan</a></li>
+          <li><a href="#portfolio">Galeri</a></li>
+          <li><a href="#team">Team</a></li>
+          <li class="menu-has-children"><a href="">Lain-Lain</a>
+            <ul>
+              <li><a href="{% url 'articles:list' %}">Berita Terkini</a></li>
+              <li><a href="https://www.zakatselangor.com.my/agihan-zakat/kadar-had-kifayah/">Panduan Kiraan Zakat Asnaf</a></li>
+              <!--<li><a href="#">Drop Down 5</a></li>-->
+            </ul>
+          </li>
+          <li><a href="#contact">Hubungi Kami</a></li>
+          <li>{% if user.is_authenticated %}
+                <form class="logout-link" action="{% url 'accounts:logout'%}" method="post">
+                        {% csrf_token %}
+                        <button type="submit"><b>Logout</b></button>
+                    </form>
+                {% endif %}</li>
+        </ul>
+      </nav><!-- #nav-menu-container -->
+    </div>
+  </header><!-- #header -->
+
+  <!--==========================
+    Intro Section
+  ============================-->
+  <section id="intro">
+    <div class="intro-container">
+      <div id="introCarousel" class="carousel  slide carousel-fade" data-ride="carousel">
+
+        <ol class="carousel-indicators"></ol>
+
+        <div class="carousel-inner" role="listbox">
+
+          <div class="carousel-item active">
+            <div class="carousel-background"><img src="{% static 'img/intro-carousel/z1.jpg' %}" alt=""></div>
+            <div class="carousel-container">
+              <div class="carousel-content">
+                <h2>Zakat Mensucikan Harta</h2>
+                <p>Rasulullah bersabda, "Sesiapa yang telah menunaikan zakat hartanya maka keburukan harta itu terhapus".<b>(Tabarani, Ibnu Khuzaimah dan Hakim)</b></p>
+                <a href="#featured-services" class="btn-get-started scrollto">Assalamualaikum</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <div class="carousel-background"><img src="{% static 'img/intro-carousel/z2.jpg' %}" alt=""></div>
+            <div class="carousel-container">
+              <div class="carousel-content">
+                <h2>Zakat Jambatan Islam</h2>
+                <p>Rasulullah bersabda, "Zakat ialah jambatan Islam (yang kukuh). "<b>(Targhib: Tabrani)</b></p>
+                <a href="#featured-services" class="btn-get-started scrollto">Welcome</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <div class="carousel-background"><img src="{% static 'img/intro-carousel/z3.jpg' %}" alt=""></div>
+            <div class="carousel-container">
+              <div class="carousel-content">
+                <h2>Penekanan Membayar Zakat</h2>
+                <p>"Dan dirikanlah kamu akan solah dan keluarkanlah zakat, dan rukuklah kamu semua (berjemaah) bersama-sama orang-orang yang rukuk)." <b>(al-Baqarah: 43)</b></p>
+                <a href="#featured-services" class="btn-get-started scrollto">Bismillah</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <div class="carousel-background"><img src="{% static 'img/intro-carousel/z4.jpg' %}" alt=""></div>
+            <div class="carousel-container">
+              <div class="carousel-content">
+                <h2>Fadhilat Membayar Zakat</h2>
+                <p>"Dan (ketahuilah bahawa) sesuatu pemberian yang kamu berikan supaya harta bertambah dalam pusingan harta manusia maka harta itu tidak sekali-kali akan berkembang di sisi Allah (tidak mendatangkan kebaikan). Sebaliknya sesuatu pemberian zakat yang kamu berikan dengan tujuan semata-mata mengharapkan keredhaan Allah, maka mereka yang melakukannya itulah orang-orang yang beroleh pahala berganda."</p>
+                <a href="#featured-services" class="btn-get-started scrollto">Selamat Datang</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <div class="carousel-background"><img src="{% static 'img/intro-carousel/z5.jpg' %}" alt=""></div>
+            <div class="carousel-container">
+              <div class="carousel-content">
+                <h2>Kesempurnaan Islam Dengan Menunaikan Zakat</h2>
+                <p> Baginda telah bersabda "Sesungguhnya kesempurnaan Islam kamu adalah apabila kamu tunaikan zakat harta kamu. "<b>(Targhib: Bazzar)</b></p>
+                <a href="#featured-services" class="btn-get-started scrollto">Apa Khabar</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <a class="carousel-control-prev" href="#introCarousel" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon ion-chevron-left" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+
+        <a class="carousel-control-next" href="#introCarousel" role="button" data-slide="next">
+          <span class="carousel-control-next-icon ion-chevron-right" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+
+      </div>
+    </div>
+  </section><!-- #intro -->
+
+  <main id="main">
+
+    <!--==========================
+      Featured Services Section
+    ============================-->
+    <section id="featured-services">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-4 box">
+            <i class="ion-ios-bookmarks-outline"></i>
+            <h4 class="title"><a href="">Kami Positif</a></h4>
+            <p class="description">Pemikiran positif melahirkan pandangan yang luas dan membangun disamping meningkatkan kualiti kerja kami. Positif menjadi konsep pemikiran kami.</p>
+          </div>
+
+          <div class="col-lg-4 box box-bg">
+            <i class="ion-ios-stopwatch-outline"></i>
+            <h4 class="title"><a href="">Kami Peka</a></h4>
+            <p class="description">Setiap isu zakat yag timbul akan kami selesaikan dengan sebaik mungkin untuk kesejahteraan bersama.</p>
+          </div>
+
+          <div class="col-lg-4 box">
+            <i class="ion-ios-heart-outline"></i>
+            <h4 class="title"><a href="">Kami Prihatin</a></h4>
+            <p class="description">Kami sedia membantu kepada yang memerlukan. Masalah anda kami sedia dengari.</p>
+          </div>
+
+        </div>
+      </div>
+    </section><!-- #featured-services -->
+
+    <!--==========================
+      About Us Section
+    ============================-->
+    <section id="about">
+      <div class="container">
+
+        <header class="section-header">
+          <h3>Tentang Kami</h3>
+          <p>Mari kenali kami dengan lebih mendalam tentang perancangan kami pada masa hadapan.</p>
+        </header>
+
+        <div class="row about-cols">
+
+          <div class="col-md-4 wow fadeInUp">
+            <div class="about-col">
+              <div class="img">
+                <img src="{% static 'img/about-mission.jpg' %}" alt="" class="img-fluid">
+                <div class="icon"><i class="ion-ios-speedometer-outline"></i></div>
+              </div>
+              <h2 class="title"><a href="#">Misi Kami</a></h2>
+              <p>
+                Mempelbagaikan progra berorientasikan pembangunan insan dengan kerjasama fakulti, jabatan dan pihak berkaitan bagi menyuburkan budaya intelektual melalui kegiatan ilmu serta aktiviti yang selari dengan visi dan misi Unisel.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-4 wow fadeInUp" data-wow-delay="0.1s">
+            <div class="about-col">
+              <div class="img">
+                <img src="{% static 'img/about-plan.jpg' %}" alt="" class="img-fluid">
+                <div class="icon"><i class="ion-ios-list-outline"></i></div>
+              </div>
+              <h2 class="title"><a href="#">Plan Kami</a></h2>
+              <p>
+                Menjalankan aktiviti yang berkaitan zakat demi memastikan ahli asnaf zakat mendapat pendedahan yang baik dalam memajukan diri.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-4 wow fadeInUp" data-wow-delay="0.2s">
+            <div class="about-col">
+              <div class="img">
+                <img src="{% static 'img/about-vision.jpg' %}" alt="" class="img-fluid">
+                <div class="icon"><i class="ion-ios-eye-outline"></i></div>
+              </div>
+              <h2 class="title"><a href="#">Visi Kami</a></h2>
+              <p>
+               Menjadi pusat pembangunan insan yang holistik.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- #about -->
+
+    <!--==========================
+      Services Section
+    ============================-->
+    <section id="services">
+      <div class="container">
+
+        <header class="section-header wow fadeInUp">
+          <h3>Perkhidmatan</h3>
+          <p>Kami menyediakan pelbagai perkhidmatan demi memenuhi kehendak dan kepuasan pengguna kami dengan berkualiti</p>
+        </header>
+
+        <div class="row">
+
+          <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
+            <div class="icon"><i class="ion-ios-analytics-outline"></i></div>
+            <h4 class="title"><a href="">Info Zakat</a></h4>
+            <p class="description">Unit Zakat menyediakan maklumat berkenaan zakat sebagai rujukan komuniti dalam mengetahui perihal urusan zakat yang terkini.</p>
+          </div>
+          <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
+            <div class="icon"><i class="ion-ios-bookmarks-outline"></i></div>
+            <h4 class="title"><a href="">Aktiviti Pelajar Asnaf</a></h4>
+            <p class="description">Kami menjalankan aktiviti yang bersesuaian dalam membentuk para pelajar asnaf supaya mereka terus maju kehadapan.</p>
+          </div>
+          <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
+            <div class="icon"><i class="ion-ios-paper-outline"></i></div>
+            <h4 class="title"><a href="{% url 'formzakat:apply' %}">Permohonan Asnaf Zakat</a></h4>
+            <p class="description">Perkhidmatan untuk pelajar yang memerlukan bantuan zakat. "KLIK" Untuk Memohon</p>
+          </div>
+          <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
+            <div class="icon"><i class="ion-ios-speedometer-outline"></i></div>
+            <h4 class="title"><a href="">Bantuan Makanan & Kewangan</a></h4>
+            <p class="description">Kami menyediakan bantuan makanan dan kewangan bagi pelajar yang layak kepada para pelajar.</p>
+          </div>
+          <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
+            <div class="icon"><i class="ion-ios-barcode-outline"></i></div>
+            <h4 class="title"><a href="">Khidmat Nasihat</a></h4>
+            <p class="description">Kami sedia mendengar keluhan dan menawarkan bantuan nasihat bagi meringankan beban anda</p>
+          </div>
+          <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
+            <div class="icon"><i class="ion-ios-people-outline"></i></div>
+            <h4 class="title"><a href="">Sahabat Pusat Islam(SPI)</a></h4>
+            <p class="description">Persatuan pelajar yang diiktiraf oleh pihak UNISEL yang berkait rapat dengan Unit Zakat dalam menjalankan aktiviti yang berhubung dengan zakat.</p>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- #services -->
+
+    <!--==========================
+      Call To Action Section
+    ============================-->
+    <section id="call-to-action" class="wow fadeIn">
+      <div class="container text-center">
+        <h3> <b>JOM</b> Bersedeqah </h3>
+        <p> Dengan sedeqah anda pelbagai manfaat dapat diterima oleh ramai orang.</p>
+        <p>Baginda bersabda, "Bersedeqah tidak mengurangkan harta, Allah pasti akan menambahkan kemuliaan kepada seseorang hamba yang memanfaatkan kesalahan orang lain, dan Allah pasti mengangkat darjat seseorang yang bertawaduk semata-mata untuk mendapatkan keredhaan Allah. "<b>(Misykat: Muslim)</b> </p>
+        <font face="verdana" color="orange"><b>TABUNG KEBAJIKAN UNISEL</b></font>
+        <div align="center"></div>
+        <a class="cta-btn" href="#">AmBank : 1242022002066</a>
+      </div>
+    </section><!-- #call-to-action -->
+
+    <!--==========================
+      Skills Section
+    ============================-->
+    <section id="skills">
+      <div class="container">
+
+        <header class="section-header">
+          <h3>Tahap Kepuasan</h3>
+          <!--<p>Perkara ini berdasarkan respon balas daripada pengguna perkhidmatan dari Unit Zakat</p>-->
+        </header>
+
+        <div class="skills-content">
+
+          <div class="progress">
+            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+              <span class="skill">Perkhidmatan Pengguna <i class="val">100%</i></span>
+            </div>
+          </div>
+
+          <div class="progress">
+            <div class="progress-bar bg-info" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
+              <span class="skill">Aktiviti Pelajar <i class="val">90%</i></span>
+            </div>
+          </div>
+
+          <div class="progress">
+            <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+              <span class="skill">Program Umum <i class="val">75%</i></span>
+            </div>
+          </div>
+
+          <div class="progress">
+            <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100">
+              <span class="skill">Pengurusan <i class="val">55%</i></span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!--==========================
+      Facts Section
+    ============================-->
+    <section id="facts"  class="wow fadeIn">
+      <div class="container">
+
+        <header class="section-header">
+          <h3>Fakta</h3>
+          <!--<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>-->
+        </header>
+
+        <div class="row counters">
+
+  				<div class="col-lg-3 col-6 text-center">
+            <span data-toggle="counter-up">10,000</span>
+            <p>Pengguna</p>
+  				</div>
+
+          <div class="col-lg-3 col-6 text-center">
+            <span data-toggle="counter-up">1,000</span>
+            <p>Pemohon Zakat</p>
+  				</div>
+
+          <div class="col-lg-3 col-6 text-center">
+            <span data-toggle="counter-up">40</span>
+            <p>Jumlah jam sokongan per minggu</p>
+  				</div>
+
+          <div class="col-lg-3 col-6 text-center">
+            <span data-toggle="counter-up">4</span>
+            <p>Staf</p>
+  				</div>
+
+  			</div>
+
+        <div class="facts-img">
+          <img src="{% static 'img/facts-img.png' %}" alt="" class="img-fluid">
+        </div>
+
+      </div>
+    </section><!-- #facts -->
+
+  <!--==========================
+      Portfolio Section
+    ============================-->
+    <section id="portfolio"  class="section-bg" >
+      <div class="container">
+
+        <header class="section-header">
+          <h3 class="section-title">Galeri</h3>
+        </header>
+
+        <div class="row">
+          <div class="col-lg-12">
+            <ul id="portfolio-flters">
+              <li data-filter="*" class="filter-active">All</li>
+              <li data-filter=".filter-app">Quran Hour</li>
+              <li data-filter=".filter-card">Gempur Subuh</li>
+              <li data-filter=".filter-web">Penyerahan Wang Saku</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row portfolio-container">
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp">
+            <div class="portfolio-wrap">
+              <figure>
+                <img src="{% static 'img/portfolio/qh1.jpg' %}" class="img-fluid" alt="">
+                <a href="{% static 'img/portfolio/qh1.jpg' %}" data-lightbox="portfolio" data-title="Quran Hour 1" class="link-preview" title="Preview"><i class="ion ion-eye"></i></a>
+                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
+              </figure>
+
+              <div class="portfolio-info">
+                <h4><a href="#">Quran Hour 1</a></h4>
+                <p>Quran Hour</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web wow fadeInUp" data-wow-delay="0.1s">
+            <div class="portfolio-wrap">
+              <figure>
+                <img src="{% static 'img/portfolio/ws3.jpg' %}" class="img-fluid" alt="">
+                <a href="{% static 'img/portfolio/ws3.jpg' %}" class="link-preview" data-lightbox="portfolio" data-title="Wang Saku 3" title="Preview"><i class="ion ion-eye"></i></a>
+                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
+              </figure>
+
+              <div class="portfolio-info">
+                <h4><a href="#">Wang Saku 3</a></h4>
+                <p>Penyerahan Wang Saku</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp" data-wow-delay="0.2s">
+            <div class="portfolio-wrap">
+              <figure>
+                <img src="{% static 'img/portfolio/qh2.jpg' %}" class="img-fluid" alt="">
+                <a href="{% static 'img/portfolio/qh2.jpg' %}" class="link-preview" data-lightbox="portfolio" data-title="Quran Hour 2" title="Preview"><i class="ion ion-eye"></i></a>
+                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
+              </figure>
+
+              <div class="portfolio-info">
+                <h4><a href="#">Quran Hour 2</a></h4>
+                <p>Quran Hour</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-card wow fadeInUp">
+            <div class="portfolio-wrap">
+              <figure>
+                <img src="{% static 'img/portfolio/gs2.jpg' %}" class="img-fluid" alt="">
+                <a href="{% static 'img/portfolio/gs2.jpg' %}" class="link-preview" data-lightbox="portfolio" data-title="Gempur Subuh 2" title="Preview"><i class="ion ion-eye"></i></a>
+                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
+              </figure>
+
+              <div class="portfolio-info">
+                <h4><a href="#">Gempur Subuh 2</a></h4>
+                <p>Gempur Subuh</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web wow fadeInUp" data-wow-delay="0.1s">
+            <div class="portfolio-wrap">
+              <figure>
+                <img src="{% static 'img/portfolio/ws2.jpg' %}" class="img-fluid" alt="">
+                <a href="{% static 'img/portfolio/ws2.jpg' %}" class="link-preview" data-lightbox="portfolio" data-title="Wang Saku 2" title="Preview"><i class="ion ion-eye"></i></a>
+                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
+              </figure>
+
+              <div class="portfolio-info">
+                <h4><a href="#">Wang Saku 2</a></h4>
+                <p>Penyerahan Wang Saku</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp" data-wow-delay="0.2s">
+            <div class="portfolio-wrap">
+              <figure>
+                <img src="{% static 'img/portfolio/qh3.jpg' %}" class="img-fluid" alt="">
+                <a href="{% static 'img/portfolio/qh3.jpg' %}" class="link-preview" data-lightbox="portfolio" data-title="Quran Hour 3" title="Preview"><i class="ion ion-eye"></i></a>
+                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
+              </figure>
+
+              <div class="portfolio-info">
+                <h4><a href="#">Quran Hour 3</a></h4>
+                <p>Quran Hour</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-card wow fadeInUp">
+            <div class="portfolio-wrap">
+              <figure>
+                <img src="{% static 'img/portfolio/gs1.jpg' %}" class="img-fluid" alt="">
+                <a href="{% static 'img/portfolio/gs1.jpg' %}" class="link-preview" data-lightbox="portfolio" data-title="Gempur Subuh 1" title="Preview"><i class="ion ion-eye"></i></a>
+                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
+              </figure>
+
+              <div class="portfolio-info">
+                <h4><a href="#">Gempur Subuh 1</a></h4>
+                <p>Gempur Subuh</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-card wow fadeInUp" data-wow-delay="0.1s">
+            <div class="portfolio-wrap">
+              <figure>
+                <img src="{% static 'img/portfolio/gs3.jpg' %}" class="img-fluid" alt="">
+                <a href="{% static 'img/portfolio/gs3.jpg' %}" class="link-preview" data-lightbox="portfolio" data-title="Gempur Subuh 3" title="Preview"><i class="ion ion-eye"></i></a>
+                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
+              </figure>
+
+              <div class="portfolio-info">
+                <h4><a href="#">Gempur Subuh 3</a></h4>
+                <p>Gempur Subuh</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web wow fadeInUp" data-wow-delay="0.2s">
+            <div class="portfolio-wrap">
+              <figure>
+                <img src="{% static 'img/portfolio/ws1.jpg' %}" class="img-fluid" alt="">
+                <a href="{% static 'img/portfolio/ws1.jpg' %}" class="link-preview" data-lightbox="portfolio" data-title="Wang Saku 1" title="Preview"><i class="ion ion-eye"></i></a>
+                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
+              </figure>
+
+              <div class="portfolio-info">
+                <h4><a href="#">Wang Saku 1</a></h4>
+                <p>Penyerahan Wang Saku</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- #portfolio -->
+
+    <!--==========================
+      Clients Section
+    ============================-->
+    <!--<section id="clients" class="wow fadeInUp">
+      <div class="container">
+
+        <header class="section-header">
+          <h3>Our Clients</h3>
+        </header>
+
+        <div class="owl-carousel clients-carousel">
+          <img src="{% static 'img/clients/client-1.png' %}" alt="">
+          <img src="{% static 'img/clients/client-2.png' %}" alt="">
+          <img src="{% static 'img/clients/client-3.png' %}" alt="">
+          <img src="{% static 'img/clients/client-4.png' %}" alt="">
+          <img src="{% static 'img/clients/client-5.png' %}" alt="">
+          <img src="{% static 'img/clients/client-6.png' %}" alt="">
+          <img src="{% static 'img/clients/client-7.png' %}" alt="">
+          <img src="{% static 'img/portfolio/card3.jpg' %}" alt="">
+        </div>
+
+      </div>
+    </section>--><!-- #clients -->
+
+    <!--==========================
+      Clients Section
+    ============================-->
+    <!--<section id="testimonials" class="section-bg wow fadeInUp">
+      <div class="container">
+
+        <header class="section-header">
+          <h3>Testimonials</h3>
+        </header>
+
+        <div class="owl-carousel testimonials-carousel">
+
+          <div class="testimonial-item">
+            <img src="{% static 'img/testimonial-1.jpg' %}" class="testimonial-img" alt="">
+            <h3>Saul Goodman</h3>
+            <h4>Ceo &amp; Founder</h4>
+            <p>
+              <img src="{% static 'img/quote-sign-left.png' %}" class="quote-sign-left" alt="">
+              Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+              <img src="{% static 'img/quote-sign-right.png' %}" class="quote-sign-right" alt="">
+            </p>
+          </div>
+
+          <div class="testimonial-item">
+            <img src="{% static 'img/testimonial-2.jpg' %}" class="testimonial-img" alt="">
+            <h3>Sara Wilsson</h3>
+            <h4>Designer</h4>
+            <p>
+              <img src="{% static 'img/quote-sign-left.png' %}" class="quote-sign-left" alt="">
+              Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
+              <img src="{% static 'img/quote-sign-right.png' %}" class="quote-sign-right" alt="">
+            </p>
+          </div>
+
+          <div class="testimonial-item">
+            <img src="{% static 'img/testimonial-3.jpg' %}" class="testimonial-img" alt="">
+            <h3>Jena Karlis</h3>
+            <h4>Store Owner</h4>
+            <p>
+              <img src="{% static 'img/quote-sign-left.png' %}" class="quote-sign-left" alt="">
+              Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
+              <img src="{% static 'img/quote-sign-right.png' %}" class="quote-sign-right" alt="">
+            </p>
+          </div>
+
+          <div class="testimonial-item">
+            <img src="{% static 'img/testimonial-4.jpg' %}" class="testimonial-img" alt="">
+            <h3>Matt Brandon</h3>
+            <h4>Freelancer</h4>
+            <p>
+              <img src="{% static 'img/quote-sign-left.png' %}" class="quote-sign-left" alt="">
+              Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
+              <img src="{% static 'img/quote-sign-right.png' %}" class="quote-sign-right" alt="">
+            </p>
+          </div>
+
+          <div class="testimonial-item">
+            <img src="{% static 'img/testimonial-5.jpg' %}" class="testimonial-img" alt="">
+            <h3>John Larson</h3>
+            <h4>Entrepreneur</h4>
+            <p>
+              <img src="{% static 'img/quote-sign-left.png' %}" class="quote-sign-left" alt="">
+              Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
+              <img src="{% static 'img/quote-sign-right.png' %}" class="quote-sign-right" alt="">
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>--><!-- #testimonials -->
+
+    <!--==========================
+      Team Section
+    ============================-->
+    <section id="team">
+      <div class="container">
+        <div class="section-header wow fadeInUp">
+          <h3>Team</h3>
+          <p>Kenali Staf Unit Zakat yang bersiap sedia dalam membantu anda</p>
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 wow fadeInUp">
+            <div class="member">
+              <img src="{% static 'img/drZaki.jpg' %}" class="img-fluid" alt="">
+              <div class="member-info">
+                <div class="member-info-content">
+                  <h4>Dr Haji Ahmad Zaki B. Haji Abd Latiff</h4>
+                  <span>Pengarah Unit Zakat</span>
+                  <div class="social">
+                    <a href=""><i class="fa fa-twitter"></i></a>
+                    <a href=""><i class="fa fa-facebook"></i></a>
+                    <a href=""><i class="fa fa-google-plus"></i></a>
+                    <a href=""><i class="fa fa-linkedin"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+            <div class="member">
+              <img src="{% static 'img/ustazRahman.jpg' %}" class="img-fluid" alt="">
+              <div class="member-info">
+                <div class="member-info-content">
+                  <h4>Ustaz Abd Rahman B. Ridewan</h4>
+                  <span>Pegawai Zakat</span>
+                  <div class="social">
+                    <a href=""><i class="fa fa-twitter"></i></a>
+                    <a href=""><i class="fa fa-facebook"></i></a>
+                    <a href=""><i class="fa fa-google-plus"></i></a>
+                    <a href=""><i class="fa fa-linkedin"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+            <div class="member">
+              <img src="{% static 'img/mokhtar.jpg' %}" class="img-fluid" alt="">
+              <div class="member-info">
+                <div class="member-info-content">
+                  <h4>En Mokhtar Dahari B. Dawe</h4>
+                  <span>Penolong Pegawai Zakat</span>
+                  <div class="social">
+                    <a href=""><i class="fa fa-twitter"></i></a>
+                    <a href=""><i class="fa fa-facebook"></i></a>
+                    <a href=""><i class="fa fa-google-plus"></i></a>
+                    <a href=""><i class="fa fa-linkedin"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+            <div class="member">
+              <img src="{% static 'img/kakani.jpg' %}" class="img-fluid" alt="">
+              <div class="member-info">
+                <div class="member-info-content">
+                  <h4>Pn Zuraini</h4>
+                  <span>Staf Sokongan</span>
+                  <div class="social">
+                    <a href=""><i class="fa fa-twitter"></i></a>
+                    <a href=""><i class="fa fa-facebook"></i></a>
+                    <a href=""><i class="fa fa-google-plus"></i></a>
+                    <a href=""><i class="fa fa-linkedin"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- #team -->
+
+    <!--==========================
+      Contact Section
+    ============================-->
+    <section id="contact" class="section-bg wow fadeInUp">
+      <div class="container">
+
+        <div class="section-header">
+          <h3>Hubungi Kami</h3>
+          <p>Perlukan Bantuan? Hubungi Kami!!! Kami Sedia Membantu.</p>
+        </div>
+
+        <div class="row contact-info">
+
+          <div class="col-md-4">
+            <div class="contact-address">
+              <i class="ion-ios-location-outline"></i>
+              <h3>Alamat</h3>
+              <address>Unit Zakat & Sedeqah UNISEL, Jalan Timur Tambahan, 45600 Bestari Jaya, Selangor</address>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="contact-phone">
+              <i class="ion-ios-telephone-outline"></i>
+              <h3>Phone Number</h3>
+              <p><a href="tel:+155895548855">+03 3280 5140</a></p>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="contact-email">
+              <i class="ion-ios-email-outline"></i>
+              <h3>Email</h3>
+              <p><a href="mailto:info@example.com">pusat_islam@unisel.edu.my</a></p>
+            </div>
+          </div>
+
+        </div>
+
+        <!--<div class="form">
+          <div id="sendmessage">Your message has been sent. Thank you!</div>
+          <div id="errormessage"></div>
+          <form action="" method="post" role="form" class="contactForm">
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                <div class="validation"></div>
+              </div>
+              <div class="form-group col-md-6">
+                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+                <div class="validation"></div>
+              </div>
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+              <div class="validation"></div>
+            </div>
+            <div class="form-group">
+              <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+              <div class="validation"></div>
+            </div>
+            <div class="text-center"><button type="submit">Send Message</button></div>
+          </form>
+        </div>-->
+
+      </div>
+    </section><!-- #contact -->
+
+  </main>
+
+  <!--==========================
+    Footer
+  ============================-->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-info">
+            <h3>Unit Zakat</h3>
+            <p>Penubuhan Unit Zakat sejajar dengan hasrat universiti untuk menjadikan Masjid sebagai tempat tumpuan komuniti.</p>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Cadangan Pautan</h4>
+            <ul>
+              <li><i class="ion-ios-arrow-right"></i> <a href="{% url 'home' %}">Utama</a></li>
+              <li><i class="ion-ios-arrow-right"></i> <a href="https://www.unisel.edu.my/main/">UNISEL</a></li>
+              <li><i class="ion-ios-arrow-right"></i> <a href="http://pusatislam.unisel.edu.my/">Pusat Islam</a></li>
+              <li><i class="ion-ios-arrow-right"></i> <a href="http://studentportal.unisel.edu.my/">Portal Pelajar</a></li>
+              <li><i class="ion-ios-arrow-right"></i> <a href="https://www.zakatselangor.com.my/agihan-zakat/kalkulator-kelayakan/">Kalkulator Kelayakan Asnaf</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h4>Hubungi Kami</h4>
+            <p>
+              Unit Zakat & Sedeqah UNISEL <br>
+              Jalan Timur Tambahan<br>
+              45600 Bestari Jaya<br>
+              Selangor Darul Ehsan <br>
+              <strong>Phone:</strong> +03 3280 5140<br>
+              <strong>Email:</strong> pusat_islam@unisel.edu.my<br>
+            </p>
+
+            <div class="social-links">
+              <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+              <a href="https://www.facebook.com/pusatislam.unisel" class="facebook"><i class="fa fa-facebook"></i></a>
+              <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+              <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
+              <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+            </div>
+
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-newsletter">
+            <h4>Berita Terkini</h4>
+            <p>Ketahui maklumat terkini dari Unit Zakat. Klik butang "BERITA" dibawah untuk akses ke sudut ruangan berita terkini.</p>
+            <!--<form action="" method="post">
+              <input type="email" name="email"><input type="submit"  value="Subscribe">
+            </form>-->
+            <a class="btn btn-success" href="{% url 'articles:list' %}" role="button">BERITA</a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong>Unit Zakat & Sedeqah Universiti Selangor</strong>. Hak Cipta Terpelihara
+      </div>
+      <div class="credits">
+        <!--
+          All the links in the footer should remain intact.
+          You can delete the links only if you purchased the pro version.
+          Licensing information: https://bootstrapmade.com/license/
+          Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=BizPage
+        -->
+        Direka Oleh <a href="{% url 'home' %}">SPI</a>
+      </div>
+    </div>
+  </footer><!-- #footer -->
+
+  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+  <!-- JavaScript Libraries -->
+  <script src="{% static 'lib/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'lib/jquery/jquery-migrate.min.js' %}"></script>
+  <script src="{% static 'lib/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'lib/easing/easing.min.js' %}"></script>
+  <script src="{% static 'lib/superfish/hoverIntent.js' %}"></script>
+  <script src="{% static 'lib/superfish/superfish.min.js' %}"></script>
+  <script src="{% static 'lib/wow/wow.min.js' %}"></script>
+  <script src="{% static 'lib/waypoints/waypoints.min.js' %}"></script>
+  <script src="{% static 'jlib/counterup/counterup.min.js' %}"></script>
+  <script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'lib/isotope/isotope.pkgd.min.js' %}"></script>
+  <script src="{% static 'lib/lightbox/js/lightbox.min.js' %}"></script>
+  <script src="{% static 'lib/touchSwipe/jquery.touchSwipe.min.js' %}"></script>
+  <!-- Contact Form JavaScript File -->
+  <script src="contactform/contactform.js"></script>
+
+  <!-- Template Main Javascript File -->
+  <script src="{% static 'js/main.js' %}"></script>
+
+</body>
+</html>
