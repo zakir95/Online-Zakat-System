@@ -94,12 +94,12 @@ class FamilyinfoTabularInline(admin.TabularInline):
     model = Familyinfo
 
 
-#class DoczakatTabularInline(admin.TabularInline):
-#    model = Doczakat
+class DoczakatTabularInline(admin.TabularInline):
+    model = Doczakat
 
 
 class FormzakatAdmin(admin.ModelAdmin):
-    inlines = [FamilyinfoTabularInline]#, DoczakatTabularInline]
+    inlines = [FamilyinfoTabularInline, DoczakatTabularInline]
     class Meta:
         model = Formzakat
 
